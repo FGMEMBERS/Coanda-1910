@@ -13,9 +13,9 @@
       var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
       var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
 
-      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
-      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
-
+      var crew_door = self.getNode("sim/model/door-positions/crew/position-norm", 1);
+      var passenger_door = self.getNode("sim/model/door-positions/passenger/position-norm", 1);
+      
       crew_door.alias(float_0);
       passenger_door.alias(float_0);
     </load>
@@ -45,13 +45,13 @@
     <object-name>reservoir</object-name>
       
     <object-name>trous</object-name>
+    <object-name>cables</object-name>
     <object-name>moteur</object-name>
     <object-name>patin</object-name>
     <object-name>roueG</object-name>
     <object-name>roueD</object-name>
 
     <!-- Objets transparents -->
-    <object-name>cables</object-name>
   </animation>
 
   <animation>
@@ -73,6 +73,7 @@
     <object-name>reservoir</object-name>
     
     <object-name>trous</object-name>
+    <object-name>cables</object-name>
     <object-name>moteur</object-name>
     <object-name>patin</object-name>
     <object-name>roueG</object-name>
@@ -81,11 +82,6 @@
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture.png</texture>
-    <specular>
-      <red-prop>specular/red</red-prop>
-      <green-prop>specular/green</green-prop>
-      <blue-prop>specular/blue</blue-prop>
-    </specular>
     <emission>
       <red-prop>emission/red</red-prop>
       <green-prop>emission/green</green-prop>
@@ -104,32 +100,11 @@
     <object-name>reservoir</object-name>
   </effect>
 
-  <animation>
-    <type>noshadow</type>
-    <object-name>cables</object-name>
-  </animation>
-
-  <!--  REMBRANDT support for transparent objects -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
-    <object-name>cables</object-name>
-  </effect>
-
   <!-- Interieur -->
   <model>
-    <name>Interieur</name>
     <path>Aircraft/Coanda-1910/Models/Interior/interior.xml</path>
   </model>
   
-  <!-- For Rembrandt -->
-  <animation>
-    <type>noshadow</type>
-    <object-name>Interieur</object-name>
-  </animation>
-
   <!-- Une ombre pour OSG -->
   <model>
     <path>Aircraft/Coanda-1910/Models/shadow.xml</path>

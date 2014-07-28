@@ -7,7 +7,7 @@ name "interieur"
 loc -3.938309 -0.03086 -0
 data 9
 interieur
-texture "colors.png"
+texture "interior.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 104

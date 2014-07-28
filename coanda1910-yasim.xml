@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <!-- Coanda 1910      : 2013 Emmanuel BARANGER
-   
+
      sources          : http://www.militaryfactory.com/aircraft/detail.asp?aircraft_id=682
                       : http://en.wikipedia.org/wiki/Coand%C4%83-1910
 
@@ -14,7 +14,7 @@
      Maximum speed    :   180 km/h ( 97 kts )
 -->
 
-<airplane mass="920">
+<airplane mass="920" version="YASIM_VERSION_CURRENT">
 
   <!-- Approach configuration -->
   <approach speed="30" aoa="4" fuel="0.2">

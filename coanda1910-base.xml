@@ -2,9 +2,9 @@
 
 <PropertyList>
 
-  <sim include="Nasal/views.xml">
+  <sim include="Systems/views.xml">
 
-    <author>BARANGER Emmanuel (3D/FDM), Samaliet (Panel)</author>
+    <author>BARANGER Emmanuel (3D/FDM)</author>
     <aircraft-version>0.2</aircraft-version>
     <status>Alpha</status>
 
@@ -28,29 +28,28 @@
     <multiplay>
       <chat_display>1</chat_display>
       <generic> 
-        <int type="int" n="0">  0 </int>                                      <!-- 0 immat -->
-        <int type="int" n="1">  0 </int>                                      <!-- 1 immat -->
-        <int type="int" n="2">  0 </int>                                      <!-- 2 immat -->
-        <int type="int" n="3">  0 </int>                                      <!-- 3 immat -->
-        <int type="int" n="4">  0 </int>                                      <!-- 4 immat -->
-        <int type="int" n="5">  0 </int>                                      <!-- 5 immat -->
-        <int type="bool" n="6"> 1 </int>                                      <!-- 6 smoke/bomb/torpedo -->
-        <int type="int" n="7">  0 </int>                                      <!-- 7 color -->
-        <int n="8" alias="/systems/electrical/outputs/nav-lights">  0 </int>  <!-- 8 nav-lights -->
-        <int n="9" alias="/sim/model/lights/beacon/state">  false </int>      <!-- 9 strobe-lights -->
-        <int n="10" alias="/controls/electric/key-pos">  0 </int>             <!-- 10 key position -->
-        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
-        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>  
-        <float n="2" alias="/position/gear-agl-m">  0 </float>                <!-- 11 altitude for MP shadow -->
-        <string n="9" type="string" />                                        <!-- string[9] reserved for bombable mode -->
+        <int type="int" n="0">  0 </int>                                           <!--  0 immat -->
+        <int type="int" n="1">  0 </int>                                           <!--  1 immat -->
+        <int type="int" n="2">  0 </int>                                           <!--  2 immat -->
+        <int type="int" n="3">  0 </int>                                           <!--  3 immat -->
+        <int type="int" n="4">  0 </int>                                           <!--  4 immat -->
+        <int type="int" n="5">  0 </int>                                           <!--  5 immat -->
+        <int type="bool" n="6" alias="/smoke/active"> 0 </int>                     <!--  6 start smoke -->
+        <int type="int" n="7" alias="smoke/particlepersec"> 50 </int>              <!--  7 particlepersec -->
+        <float n="0" alias="/sim/model/door-positions/crew/position-norm"/>
+        <float n="1" alias="/sim/model/door-positions/passenger/position-norm"/>
+        <float n="2" alias="/position/gear-agl-m"> 0 </float>                      <!-- altitude for MP shadow -->
+        <float n="3" alias="/position/altitude-ft"> 0 </float>                     <!-- altitude for Smoke/Trail -->
+        <!-- Required to make Bombable work over multiplayer -->
+        <!-- String 9 is for Bombable damage/reset messages -->
+        <!-- Int 10,11,... are for various weapons triggers as particular to this aircraft -->
+        <int type="int" n="10" alias="controls/armament/trigger">0</int>
+        <string n="9" type="string" />
       </generic>
     </multiplay>
 
-    <help>
-      <title>Socota ST 10 Diplomate</title>
-      <line>______________________________________________</line>
-    </help>
-
+    <help include="Systems/help.xml"/>
+    
     <coanda1910>
       <state type="int">0</state>
       <airspeed-kmh type="float">0</airspeed-kmh>
@@ -85,7 +84,7 @@
   </sim>
 
   <input>
-    <keyboard include="Nasal/coanda1910-keyboard.xml"/>
+    <keyboard include="Systems/coanda1910-keyboard.xml"/>
   </input>
 
   <engines>

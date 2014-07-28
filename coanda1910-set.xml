@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- <PropertyList include="coanda1910-jsbsim-cnf.xml"> -->
-<PropertyList include="coanda1910-yasim-cnf.xml">
+<PropertyList include="coanda1910-base.xml">
 
   <sim>
     <description>Coanda 1910 (YASim)</description>
     <author>BARANGER Emmanuel (3D/FDM)</author>
+    <flight-model archive="y">yasim</flight-model>
+    <aero archive="y">coanda1910-yasim</aero>
 
     <rating>
       <FDM type="int">     2 </FDM>
@@ -17,4 +18,3 @@
   </sim>
 
 </PropertyList>
-
