@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim include="Systems/views.xml">
+
+    <author>BARANGER Emmanuel (3D/FDM)</author>
+    <aircraft-version>0.2</aircraft-version>
+    <status>Alpha</status>
+
+    <fuel-fraction>10.0</fuel-fraction>
+
+    <startup>
+      <splash-texture>Aircraft/Coanda-1910/coanda1910-splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path archive="y">Aircraft/Coanda-1910/Sounds/coanda1910-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Coanda-1910/Models/coanda1910.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int type="int" n="0">  0 </int>                                           <!--  0 immat -->
+        <int type="int" n="1">  0 </int>                                           <!--  1 immat -->
+        <int type="int" n="2">  0 </int>                                           <!--  2 immat -->
+        <int type="int" n="3">  0 </int>                                           <!--  3 immat -->
+        <int type="int" n="4">  0 </int>                                           <!--  4 immat -->
+        <int type="int" n="5">  0 </int>                                           <!--  5 immat -->
+        <int type="bool" n="6" alias="/smoke/active"> 0 </int>                     <!--  6 start smoke -->
+        <int type="int" n="7" alias="smoke/particlepersec"> 50 </int>              <!--  7 particlepersec -->
+        <float n="0" alias="/sim/model/door-positions/crew/position-norm"/>
+        <float n="1" alias="/sim/model/door-positions/passenger/position-norm"/>
+        <float n="2" alias="/position/gear-agl-m"> 0 </float>                      <!-- altitude for MP shadow -->
+        <float n="3" alias="/position/altitude-ft"> 0 </float>                     <!-- altitude for Smoke/Trail -->
+        <!-- Required to make Bombable work over multiplayer -->
+        <!-- String 9 is for Bombable damage/reset messages -->
+        <!-- Int 10,11,... are for various weapons triggers as particular to this aircraft -->
+        <int type="int" n="10" alias="controls/armament/trigger">0</int>
+        <string n="9" type="string" />
+      </generic>
+    </multiplay>
+
+    <help include="Systems/help.xml"/>
+    
+    <coanda1910>
+      <state type="int">0</state>
+      <airspeed-kmh type="float">0</airspeed-kmh>
+      <engine-rpm type="float">0</engine-rpm>
+      <engine-volume-low-rpm type="float">0</engine-volume-low-rpm>
+      <engine-volume-high-rpm type="float">0</engine-volume-high-rpm>
+    </coanda1910>
+
+    <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>180</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>140</min-lb>
+    </weight>
+
+    <weight n="1">
+      <name>Pax</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>240</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="2">
+      <name>Baggage</name>
+      <weight-lb>0</weight-lb>
+      <max-lb>20</max-lb>
+      <min-lb>0</min-lb>
+    </weight>
+
+    <menubar include="Dialogs/coanda1910-menu.xml"/>
+
+  </sim>
+
+  <input>
+    <keyboard include="Systems/coanda1910-keyboard.xml"/>
+  </input>
+
+  <engines>
+    <engine>
+      <rpm type="float">0</rpm>
+    </engine>
+  </engines>
+
+  <nasal>
+    <doors>
+      <file>Aircraft/Coanda-1910/Nasal/doors.nas</file>
+    </doors>
+    <coanda1910>
+      <file>Aircraft/Coanda-1910/Nasal/liveries.nas</file>
+    </coanda1910>
+  </nasal>
+
+</PropertyList>
